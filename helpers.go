@@ -8,18 +8,30 @@ func (c coords) getIdx(w int64) int64 {
 	return c.y*w + c.x
 }
 
-func (c coords) move(dir int, steps int64) coords {
+func (c coords) move(dir int) coords {
 	x := c.x
 	y := c.y
 	switch dir {
 	case 0:
 		y--
 	case 1:
+		y--
 		x++
 	case 2:
-		y++
+		x++
 	case 3:
+		y++
+		x++
+	case 4:
+		y++
+	case 5:
+		y++
 		x--
+	case 6:
+		x--
+	case 7:
+		x--
+		y--
 	}
 	return coords{
 		x: x,
@@ -46,18 +58,30 @@ func (c coords32) getIdx(w int) int {
 	return c.y*w + c.x
 }
 
-func (c coords32) move(dir int, steps int) coords32 {
+func (c coords32) move(dir int) coords32 {
 	x := c.x
 	y := c.y
 	switch dir {
 	case 0:
 		y--
 	case 1:
+		y--
 		x++
 	case 2:
-		y++
+		x++
 	case 3:
+		y++
+		x++
+	case 4:
+		y++
+	case 5:
+		y++
 		x--
+	case 6:
+		x--
+	case 7:
+		x--
+		y--
 	}
 	return coords32{
 		x: x,

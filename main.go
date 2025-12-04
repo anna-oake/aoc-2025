@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -23,7 +24,7 @@ func main() {
 	}
 
 	t := time.Now()
-	result := p.Execute(string(input))
+	result := p.Execute(strings.TrimSpace(string(input)))
 	total := time.Since(t)
 	fmt.Println(result)
 	fmt.Println("---\nFinished in", total)
