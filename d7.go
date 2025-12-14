@@ -95,19 +95,8 @@ func d7count(now coords) int {
 			return mem
 		}
 
-		left := now.move(LEFT)
-		right := now.move(RIGHT)
-
-		lc, ok := d7counts[left.getIdx(d7w)]
-		if !ok {
-			lc = d7count(left)
-			d7counts[left.getIdx(d7w)] = lc
-		}
-		rc, ok := d7counts[right.getIdx(d7w)]
-		if !ok {
-			rc = d7count(right)
-			d7counts[right.getIdx(d7w)] = rc
-		}
+		lc := d7count(now.move(LEFT))
+		rc := d7count(now.move(RIGHT))
 
 		d7counts[now.getIdx(d7w)] = lc + rc
 		return lc + rc
