@@ -7,12 +7,12 @@ import (
 
 func (*methods) D9P1(input string) string {
 	rows := strings.Split(input, "\n")
-	var tiles []coords32
+	var tiles []coords
 	for _, r := range rows {
 		pair := strings.Split(r, ",")
 		x, _ := strconv.Atoi(pair[0])
 		y, _ := strconv.Atoi(pair[1])
-		tiles = append(tiles, coords32{x: x, y: y})
+		tiles = append(tiles, coords{x: x, y: y})
 	}
 	var maxArea int
 	for i, t := range tiles {

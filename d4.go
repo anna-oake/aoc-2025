@@ -15,7 +15,7 @@ func (*methods) D4P1(input string) string {
 			if row[x] != '@' {
 				continue
 			}
-			c := coords32{
+			c := coords{
 				x: x,
 				y: y,
 			}
@@ -48,7 +48,7 @@ func (*methods) D4P2(input string) string {
 				if row[x] != '@' {
 					continue
 				}
-				c := coords32{
+				c := coords{
 					x: x,
 					y: y,
 				}

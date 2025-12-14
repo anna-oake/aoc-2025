@@ -1,10 +1,10 @@
 package main
 
 type coords struct {
-	x, y int64
+	x, y int
 }
 
-func (c coords) getIdx(w int64) int64 {
+func (c coords) getIdx(w int) int {
 	return c.y*w + c.x
 }
 
@@ -39,62 +39,12 @@ func (c coords) move(dir int) coords {
 	}
 }
 
-func (c coords) inBounds(w, h int64) bool {
+func (c coords) inBounds(w, h int) bool {
 	return c.x >= 0 && c.y >= 0 && c.x < w && c.y < h
 }
 
-func coordsFromIdx(idx, w int64) coords {
+func coordsFromIdx(idx, w int) coords {
 	return coords{
-		x: idx % w,
-		y: idx / w,
-	}
-}
-
-type coords32 struct {
-	x, y int
-}
-
-func (c coords32) getIdx(w int) int {
-	return c.y*w + c.x
-}
-
-func (c coords32) move(dir int) coords32 {
-	x := c.x
-	y := c.y
-	switch dir {
-	case 0:
-		y--
-	case 1:
-		y--
-		x++
-	case 2:
-		x++
-	case 3:
-		y++
-		x++
-	case 4:
-		y++
-	case 5:
-		y++
-		x--
-	case 6:
-		x--
-	case 7:
-		x--
-		y--
-	}
-	return coords32{
-		x: x,
-		y: y,
-	}
-}
-
-func (c coords32) inBounds(w, h int) bool {
-	return c.x >= 0 && c.y >= 0 && c.x < w && c.y < h
-}
-
-func coords32FromIdx(idx, w int) coords32 {
-	return coords32{
 		x: idx % w,
 		y: idx / w,
 	}
