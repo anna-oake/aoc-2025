@@ -8,6 +8,17 @@ func (c coords) getIdx(w int) int {
 	return c.y*w + c.x
 }
 
+const (
+	UP = iota
+	UP_RIGHT
+	RIGHT
+	DOWN_RIGHT
+	DOWN
+	DOWN_LEFT
+	LEFT
+	UP_LEFT
+)
+
 func (c coords) move(dir int) coords {
 	x := c.x
 	y := c.y
