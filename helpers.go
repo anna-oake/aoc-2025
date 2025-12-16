@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"math"
+)
+
 type coords struct {
 	x, y int
 }
@@ -59,6 +64,20 @@ func coordsFromIdx(idx, w int) coords {
 		x: idx % w,
 		y: idx / w,
 	}
+}
+
+type coords3d struct {
+	x int
+	y int
+	z int
+}
+
+func (c coords3d) distance(c2 coords3d) int {
+	return int(math.Sqrt(math.Pow(float64(c2.x-c.x), 2) + math.Pow(float64(c2.y-c.y), 2) + math.Pow(float64(c2.z-c.z), 2)))
+}
+
+func (c coords3d) String() string {
+	return fmt.Sprintf("%d,%d,%d", c.x, c.y, c.z)
 }
 
 // i asked chatgpt to generate the following functions, because i was too cooked and lazy
